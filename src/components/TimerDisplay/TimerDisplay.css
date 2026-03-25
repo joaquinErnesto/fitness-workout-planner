@@ -1,0 +1,179 @@
+.timer-display {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(138, 43, 226, 0.2));
+  border-radius: 20px;
+  padding: 25px;
+  margin-bottom: 20px;
+}
+
+.timer-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid rgba(255, 0, 255, 0.3);
+}
+
+.total-timer,
+.current-timer {
+  text-align: center;
+}
+
+.timer-label {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--accent-glow);
+  margin-bottom: 10px;
+  font-weight: 600;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+}
+
+.timer-value {
+  font-size: 2.5rem;
+  font-weight: 900;
+  font-family: 'Orbitron', monospace;
+  text-shadow: 0 0 10px currentColor;
+}
+
+.total-value {
+  color: var(--primary-pink);
+  text-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+}
+
+.current-status {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  padding: 15px;
+  margin-top: 5px;
+}
+
+.current-exercise,
+.current-set,
+.current-time {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.current-exercise:last-child,
+.current-set:last-child,
+.current-time:last-child {
+  border-bottom: none;
+}
+
+.status-label {
+  font-size: 0.9rem;
+  color: #AAA;
+  font-weight: 500;
+}
+
+.status-value {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--primary-red);
+}
+
+.time-remaining {
+  font-family: 'Orbitron', monospace;
+  font-size: 1.3rem;
+  color: var(--accent-glow);
+  text-shadow: 0 0 5px var(--accent-glow);
+}
+
+.workout-pending {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+  color: #AAA;
+}
+
+.pending-icon {
+  font-size: 1.5rem;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.exercise-timers {
+  margin-top: 20px;
+}
+
+.timers-label {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--primary-pink);
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.timers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 12px;
+}
+
+.exercise-timer {
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(138, 43, 226, 0.3);
+}
+
+.exercise-timer.active {
+  background: linear-gradient(135deg, rgba(255, 0, 51, 0.3), rgba(255, 0, 255, 0.3));
+  border-color: var(--primary-red);
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 0, 51, 0.5);
+}
+
+.exercise-timer-number {
+  font-size: 0.9rem;
+  color: #CCC;
+  margin-bottom: 5px;
+}
+
+.exercise-timer-time {
+  font-size: 1.1rem;
+  font-weight: bold;
+  font-family: 'Orbitron', monospace;
+  color: var(--accent-glow);
+}
+
+@media (max-width: 768px) {
+  .timer-display {
+    padding: 15px;
+  }
+  
+  .timer-main {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .timer-value {
+    font-size: 1.8rem;
+  }
+  
+  .timers-grid {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  }
+  
+  .exercise-timer-time {
+    font-size: 0.9rem;
+  }
+}
