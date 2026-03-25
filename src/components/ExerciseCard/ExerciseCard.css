@@ -1,0 +1,235 @@
+.exercise-card {
+  background: linear-gradient(145deg, #1E1E1E, #2A1A3A);
+  border-radius: 15px;
+  padding: 20px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.exercise-card.active {
+  border-color: var(--primary-pink);
+  box-shadow: 0 0 25px rgba(255, 0, 255, 0.4);
+  transform: translateY(-5px);
+}
+
+.exercise-card.active::before {
+  content: 'ACTIVE';
+  position: absolute;
+  top: 10px;
+  right: -30px;
+  background: var(--primary-red);
+  color: white;
+  padding: 5px 40px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  transform: rotate(45deg);
+  box-shadow: 0 2px 10px rgba(255, 0, 51, 0.5);
+}
+
+.exercise-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.exercise-number {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.number-badge {
+  background: linear-gradient(45deg, var(--primary-purple), var(--primary-pink));
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  box-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+}
+
+.exercise-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-light);
+  margin: 0;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.delete-btn {
+  background: linear-gradient(45deg, #FF0033, #FF3366);
+  color: white;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.delete-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(255, 0, 51, 0.7);
+}
+
+.exercise-image-container {
+  width: 100%;
+  height: 200px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  border: 2px solid var(--primary-purple);
+}
+
+.exercise-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.exercise-card:hover .exercise-image {
+  transform: scale(1.05);
+}
+
+.exercise-info {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.info-label {
+  font-size: 0.9rem;
+  color: #AAA;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.info-value {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-light);
+}
+
+.sets-value {
+  color: var(--primary-pink);
+}
+
+.time-value {
+  color: var(--accent-glow);
+  text-shadow: 0 0 5px var(--accent-glow);
+}
+
+.sets-container {
+  background: rgba(138, 43, 226, 0.1);
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.sets-title {
+  color: var(--accent-glow);
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.sets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 10px;
+}
+
+.set-item {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.set-item:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.set-number {
+  font-size: 0.9rem;
+  color: #CCC;
+}
+
+.rep-display {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: all 0.2s ease;
+}
+
+.rep-display:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.rep-value {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: var(--primary-red);
+  text-shadow: 0 0 5px rgba(255, 0, 51, 0.5);
+}
+
+.rep-unit {
+  font-size: 0.9rem;
+  color: #AAA;
+}
+
+.rep-edit {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.rep-input {
+  background: rgba(0, 0, 0, 0.5);
+  border: 2px solid var(--primary-purple);
+  color: white;
+  width: 60px;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.rep-input:focus {
+  outline: none;
+  border-color: var(--primary-pink);
+  box-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+}
