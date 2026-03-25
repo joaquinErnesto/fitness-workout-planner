@@ -17,17 +17,18 @@ function App() {
   const { 
     totalTime, 
     exerciseTimes, 
-    setTimes,
     updateWorkoutTimes 
   } = useWorkoutTime();
 
-  // Reset everything on component mount
+  // Reset everything on component mount - use a ref to prevent initial render effect
   useEffect(() => {
+    // This runs only once on mount
     setExercises([]);
     setCurrentExerciseIndex(0);
     setCurrentSet(1);
     setIsWorkoutActive(false);
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // Empty dependency array ensures this runs only once
 
   const handleAddExercise = (exercise) => {
     const newExercise = {
@@ -81,6 +82,13 @@ function App() {
     setCurrentSet(1);
   };
 
+  // Handle image selection from uploader
+  const handleImageSelect = (imageData) => {
+    // You can store the image temporarily or add it to a new exercise
+    console.log('Image selected:', imageData);
+    // This can be expanded to add the image to the current exercise being created
+  };
+
   return (
     <div className="app-container">
       <header className="app-header">
@@ -93,7 +101,7 @@ function App() {
         <div className="creation-panel">
           <div className="panel-card">
             <h2 className="panel-title">🛠️ CREATE YOUR WORKOUT</h2>
-            <ImageUploader onImageSelect={(image) => console.log('Image selected:', image)} />
+            <ImageUploader onImageSelect={handleImageSelect} />
             <ExerciseForm onAddExercise={handleAddExercise} />
           </div>
         </div>
@@ -134,7 +142,7 @@ function App() {
                   isActive={isWorkoutActive && index === currentExerciseIndex}
                   onDelete={handleDeleteExercise}
                   onUpdateReps={handleUpdateReps}
-                  estimatedTime={exerciseTimes[index] || '0:00'}
+                  estimatedTime={exerciseTimes[index] || '0'}
                 />
               ))}
             </div>
