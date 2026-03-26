@@ -4,7 +4,7 @@ import ImageUploader from './components/ImageUploader';
 import ExerciseForm from './components/ExerciseForm';
 import TimerDisplay from './components/TimerDisplay';
 import TimerControls from './components/TimerControls';
-import { calculateTotalWorkoutTime } from './utils/workoutCalculations';
+// import { calculateTotalWorkoutTime } from './utils/workoutCalculations';
 import useWorkoutTime from './hooks/useWorkoutTime';
 import './App.css';
 
