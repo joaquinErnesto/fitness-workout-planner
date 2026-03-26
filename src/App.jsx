@@ -1,14 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import ExerciseCard from './components/ExerciseCard';
 import ImageUploader from './components/ImageUploader';
 import ExerciseForm from './components/ExerciseForm';
 import TimerDisplay from './components/TimerDisplay';
 import TimerControls from './components/TimerControls';
-// import { calculateTotalWorkoutTime } from './utils/workoutCalculations';
 import useWorkoutTime from './hooks/useWorkoutTime';
 import './App.css';
 
 function App() {
+  // All state is already initialized to empty/default values
   const [exercises, setExercises] = useState([]);
   const [currentExerciseIndex, setCurrentExerciseIndex] = useState(0);
   const [currentSet, setCurrentSet] = useState(1);
@@ -19,16 +19,6 @@ function App() {
     exerciseTimes, 
     updateWorkoutTimes 
   } = useWorkoutTime();
-
-  // Reset everything on component mount - use a ref to prevent initial render effect
-  useEffect(() => {
-    // This runs only once on mount
-    setExercises([]);
-    setCurrentExerciseIndex(0);
-    setCurrentSet(1);
-    setIsWorkoutActive(false);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); // Empty dependency array ensures this runs only once
 
   const handleAddExercise = (exercise) => {
     const newExercise = {
